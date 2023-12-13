@@ -14,6 +14,8 @@
    <title>Branding Guru</title>
    <!-- #keywords -->
    <meta name="keywords" content="creative, agency, portfolio">
+   <link rel="stylesheet" type="text/css" href="css/vendor.css" />
+   <link rel="stylesheet" type="text/css" href="css/main.css" />
 
    <!-- #description -->
    <link rel="stylesheet" href="./assets/css/style.css">
@@ -31,11 +33,90 @@
    <link rel="stylesheet" href="assets/vendor/magnific-popup/css/magnific-popup.css">
    <!-- slick css -->
    <link rel="stylesheet" href="assets/vendor/slick/css/slick.css">
-   <!-- ==== / css dependencies end ==== -->
-   <!-- main css -->
    <link rel="stylesheet" href="assets/css/main.min.css">
+   <link rel="stylesheet" type="text/css"
+      href="https://fonts.googleapis.com/css?family=Cinzel:400,700%7CRaleway:500,500i,600,700%7CMaterial+Icons&amp;display=swap" />
+
+   <link rel="apple-touch-icon" sizes="57x57" href="img/content/apple-icon-57x57.png" />
+   <link rel="apple-touch-icon" sizes="60x60" href="img/content/apple-icon-60x60.png" />
+   <link rel="apple-touch-icon" sizes="72x72" href="img/content/apple-icon-72x72.png" />
+   <link rel="apple-touch-icon" sizes="76x76" href="img/content/apple-icon-76x76.png" />
+   <link rel="apple-touch-icon" sizes="114x114" href="img/content/apple-icon-114x114.png" />
+   <link rel="apple-touch-icon" sizes="120x120" href="img/content/apple-icon-120x120.png" />
+   <link rel="apple-touch-icon" sizes="144x144" href="img/content/apple-icon-144x144.png" />
+   <link rel="apple-touch-icon" sizes="152x152" href="img/content/apple-icon-152x152.png" />
+   <link rel="apple-touch-icon" sizes="180x180" href="img/content/apple-icon-180x180.png" />
+   <link rel="icon" type="image/png" sizes="192x192" href="img/content/android-icon-192x192.png" />
+   <link rel="icon" type="image/png" sizes="32x32" href="img/content/favicon-32x32.png" />
+   <link rel="icon" type="image/png" sizes="96x96" href="img/content/favicon-96x96.png" />
+   <link rel="icon" type="image/png" sizes="16x16" href="img/content/favicon-16x16.png" />
+   <link rel="manifest" href="img/content/manifest.json" />
+   <meta name="msapplication-TileColor" content="#ffffff" />
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js"></script>
+
 
 </head>
+<style>
+   :root{
+      --preloader-circle-max-size: 960;
+    --preloader-circle-min-size: 280;
+   }
+   .loader-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1000;
+   }
+
+   .loader {
+      transform: translate(-50%, -50%);
+      width: calc(1 * (var(--preloader-circle-min-size) * 1px));
+      height: calc(1 * (var(--preloader-circle-min-size) * 1px));
+      border-radius: 100%;
+      z-index: 1;
+      pointer-events: none;
+      border: 1px solid #ffffff;
+      border-top: 1px solid transparent;
+      border-radius: 50%;
+      width: 460px;
+      height: 460px;
+      animation: spin 1s linear 1;
+      margin: auto;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+   }
+
+   @keyframes spin {
+      100% {
+         transform: rotate(0deg);
+      }
+      70%{
+         transform: rotate(60deg);
+      }
+
+      25%{
+         transform: rotate(180deg);
+      }
+      0% {
+         transform: rotate(360deg);
+      }
+   }
+
+   @media (max-width: 600px) {
+      .loader {
+         border-top: 4vw solid transparent;
+         margin-left: -10px;
+         width: 95vw;
+         height: 95vw;
+      }
+   }
+</style>
 
 <body>
    <!--[if lte IE 9]>
@@ -43,20 +124,25 @@
       <![endif]-->
    <div class="my-app">
       <!-- ==== preloader start ==== -->
-      <div id="preloader">
+      <div class="preloader text-center bg-dark-2" id="js-preloader" data-arts-theme-text="light">
          <div class="preloader__content">
-            <!-- header -->
             <div class="preloader__header mt-auto">
-               <div class="preloader__heading h2"><img src="img/assets/bg-logo.png" width="100%" alt=""></div>
+               <div class="preloader__heading h2"><img src="img/assets/bg-logo.png" alt=""></div>
             </div>
-            <!-- - header -->
-
-            <!-- - counter -->
-            <!-- circle holder -->
-            <div class="preloader__circle"></div>
-            <!-- - circle holder -->
+            <div class="preloader__counter h5"><span
+                  class="preloader__counter-number preloader__counter-current">0</span><span
+                  class="preloader__counter-divider">&nbsp;&nbsp;/&nbsp;&nbsp;</span><span
+                  class="preloader__counter-number preloader__counter-total">100</span></div>
+            <div class="loader-container" id="loader-container">
+               <div class="loader"></div>
+            </div>
          </div>
       </div>
+      <svg class="spinner d-lg-none" id="js-spinner" width="65px" height="65px" viewBox="0 0 66 66"
+         xmlns="http://www.w3.org/2000/svg">
+         <circle class="spinner__path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30">
+         </circle>
+      </svg>
       <!-- ==== / preloader end ==== -->
       <!-- ==== mouse cursor drag start ==== -->
       <div class="mouseCursor cursor-outer"></div>
@@ -1186,6 +1272,7 @@
          </div>
       </div> -->
    </div>
+
    <!-- ==== js dependencies start ==== -->
    <!-- jquery -->
    <script src="assets/vendor/jquery/jquery-3.7.0.min.js"></script>
@@ -1220,6 +1307,26 @@
    <script src="assets/js/plugins.js"></script>
    <!-- main js -->
    <script src="assets/js/main.js"></script>
+   <script src="js/vendor.js"></script>
+   <script src="js/components.js"></script>
+   <script>
+      document.addEventListener("DOMContentLoaded", function () {
+         showLoader();
+         setTimeout(function () {
+            hideLoader();
+            document.getElementById("main-content").style.display = "block";
+         }, 1000);
+      });
+
+      function showLoader() {
+         document.getElementById("loader-container").style.display = "block";
+      }
+
+      function hideLoader() {
+         document.getElementById("loader-container").style.display = "none";
+      }
+
+   </script>
 </body>
 
 </html>
