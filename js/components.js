@@ -4767,7 +4767,7 @@ class FormAJAX extends Form {
 	_validate() {
 		const self = this;
 
-		self.$target.validate({
+		this.$target.validate({
 			errorElement: 'span',
 			errorPlacement: (error, element) => {
 				error.appendTo(element.parent()).addClass(self.inputClassError);
