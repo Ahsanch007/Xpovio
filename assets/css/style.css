@@ -191,3 +191,24 @@ body {
     }
   }
   
+
+  .footer .social a i {
+    color: inherit !important; /* Set the initial color of the icons */
+    transition: color 0.3s ease !important; /* Add a smooth transition effect */
+  }
+  
+  .footer .social a:hover i {
+    color: black !important; /* Change the color to black on hover */
+  }
+  .footer .footer__single-intro h5{
+    font-size: 25px !important;
+    font-family: 800 !important;
+  }
+  @media screen and (max-width: 768px) {
+    .footer .footer__single-meta{
+        justify-content: center !important;
+    }
+    .footer__single{
+        text-align: center !important;
+    }
+  }
