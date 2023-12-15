@@ -218,12 +218,7 @@ body {
     background: #fff;
   }
   @media screen and (max-width: 768px) {
-    .footer .footer__single-meta{
-        justify-content: center !important;
-    }
-    .footer__single{
-        text-align: center !important;
-    }
+
     .footer .footer__single-intro h5::before {
         content: "";
         position: absolute;
@@ -232,6 +227,5 @@ body {
         height: 2px;
         width: 80px;
         background: #fff;
-        display: none;
       }
   }
