@@ -197,12 +197,25 @@ body {
     transition: color 0.3s ease !important; /* Add a smooth transition effect */
   }
   
-  .footer .social a:hover i {
+  .footer .social a i {
     color: black !important; /* Change the color to black on hover */
+  }
+  .footer .social a{
+    background-color: #fff !important;
   }
   .footer .footer__single-intro h5{
     font-size: 25px !important;
     font-family: 800 !important;
+    position: relative !important;
+  }
+  .footer .footer__single-intro h5::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -15px;
+    height: 2px;
+    width: 80px;
+    background: #fff;
   }
   @media screen and (max-width: 768px) {
     .footer .footer__single-meta{
@@ -211,4 +224,14 @@ body {
     .footer__single{
         text-align: center !important;
     }
+    .footer .footer__single-intro h5::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -15px;
+        height: 2px;
+        width: 80px;
+        background: #fff;
+        display: none;
+      }
   }
